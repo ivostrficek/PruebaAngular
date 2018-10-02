@@ -53,11 +53,11 @@ export class AppComponent implements OnInit {
       columnDefs: [ {
           targets: 3,
           data: null,
-          defaultContent: '<a title="Editar" id=editar><span class="glyphicon glyphicon-edit"></span></a>'
+          defaultContent: '<a title="Editar" id=editar><span class="fa fa-edit"></span></a>'
       },{
         targets: 4,
         data: null,
-        defaultContent: "<button id=boton>Que miras</button>"
+        defaultContent: '<a title="Editar" id=editar><span class="fa fa-map-marker"></span></a>'
     } ],
       rowCallback: (row: Node, data: any[] | Object, index: number) => {
         const self = this;
