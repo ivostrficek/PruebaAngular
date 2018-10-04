@@ -6,16 +6,22 @@ import { MenuComponent } from './menu/menu.component';
 import { MenuService } from './service/menu.service';
 import { GridComponent } from './commons/grid/grid.component';
 import { DataTablesModule } from 'angular-datatables';
+import { LoginComponent } from './login/login.component';
+import { LandingComponent } from './landing/landing.component';
+import { AppRoutingModule } from './app-routing/app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
-    GridComponent
+    GridComponent,
+    LoginComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,
-    DataTablesModule
+    DataTablesModule,
+    AppRoutingModule
   ],
   providers: [
     MenuService

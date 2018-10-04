@@ -1,5 +1,2 @@
-<app-grid
-[inputData]="dataToShow"
-[columsHeaders]="columnsHeaders"
-[columnsDefinitions]="columnsDefinitions">
-</app-grid>
+<app-menu *ngIf='showMenu' class='legismenu'></app-menu>
+<router-outlet></router-outlet>
