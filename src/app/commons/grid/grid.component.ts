@@ -15,26 +15,17 @@ export class GridComponent implements OnInit {
    * Get the columns headers of the grid
    */
   @Input() columsHeaders: any;
+   /**
+   * Get the columns headers of the grid
+   */
+  @Input() columnsDefinitions: any;
 
   dtOptions: DataTables.Settings = {};
-  p1:Object;
-  p2:Object;
-  p3:Object;
-  persons: Object[] = [];
 
   ngOnInit(): void {
-
-    // this.p1 = {id:"1", firstName:"hola", lastName:"2sada"}
-    // this.p2 = {id:"2", firstName:"chay", lastName:"asd"}
-    // this.p3 = {id:"3", firstName:"cosa", lastName:"eded"}
-
-    // this.persons = [this.p1, this.p2, this.p3];
-
     var dataArr: string[][] = [];
 
     var rowArray: string[] = [];
-
-    var columns = [{title:'ID'}, {title:'Nombre'}, {title:'Apellido'}, {title:'Editar'}, {title:'boton'}]
 
     for (let p of this.inputData){
       rowArray = [];
@@ -45,27 +36,35 @@ export class GridComponent implements OnInit {
     }
     
     this.dtOptions = {
-      data: dataArr,
-      
+      data: dataArr,   
+      ordering: false,
+			searching: true,
+			autoWidth: false,   
       language: {
+        processing:     "Procesando...",
+        lengthMenu:    "Mostrar _MENU_ registros",
+        search:         "Buscar:",
+        info:           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+        infoEmpty:      "Mostrando registros del 0 al 0 de un total de 0 registros",
+        infoFiltered:   "(filtrado de un total de _MAX_ registros)",
+        infoPostFix:    "",
+        loadingRecords: "Cargando...",
+        zeroRecords:    "No se encontraron resultados",
+        emptyTable:     "Ningún dato disponible en esta tabla",
         paginate: {
-            first:    'Primero',
-            previous: 'Anterior',
-            next:     'Siguiente',
-            last:     'Ultimo'
+            first:      "Primero",
+            previous:   "Anterior",
+            next:       "Siguiente",
+            last:       "Último"
+        },
+        aria: {
+            sortAscending:  ": Activar para ordenar la columna de manera ascendente",
+            sortDescending: ": Activar para ordenar la columna de manera descendente"
         }
-      },
+    },
       pageLength: 10,
-      columns: columns,
-      columnDefs: [ {
-          targets: 3,
-          data: null,
-          defaultContent: '<a title="Editar"><span class="glyphicon glyphicon-edit"></span></a>'
-      },{
-        targets: 4,
-        data: null,
-        defaultContent: '<a title="Plantas"><span class="glyphicon glyphicon-map-marker"></span></a>'
-    } ],
+      columns: this.columsHeaders,
+      columnDefs: this.columnsDefinitions,
       rowCallback: (row: Node, data: any[] | Object, index: number) => {
         const self = this;
         $('#editar', row).unbind('click');
