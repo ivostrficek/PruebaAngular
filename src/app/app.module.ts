@@ -9,6 +9,8 @@ import { DataTablesModule } from 'angular-datatables';
 import { LoginComponent } from './login/login.component';
 import { LandingComponent } from './landing/landing.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
+import { AlertService } from './service/alert.service';
+import { AuthenticationService } from './service/authentication.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
     AppRoutingModule
   ],
   providers: [
-    MenuService
+    MenuService,
+    AlertService,
+    AuthenticationService
   ],
   bootstrap: [AppComponent]
 })
