@@ -16,7 +16,6 @@ import { FormsModule }   from '@angular/forms';
 import { AppConfig } from './app.config';
 import { MessageService } from './service/message.service';
 import { AuthGuard } from './guards/auth.guard';
-import { BasicService } from './service/basic.service';
 import { PaisService } from './service';
 
 @NgModule({

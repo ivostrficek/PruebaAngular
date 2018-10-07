@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MessageService } from '../service/index';
 
 @Component({
   selector: 'app-landing',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingComponent implements OnInit {
 
-  constructor() { }
+  constructor(private menssageService: MessageService) { }
 
   ngOnInit() {
+    //Si llego hasta aca es por que esta logueado
+    this.menssageService.sendMessage(true);
   }
 
 }
