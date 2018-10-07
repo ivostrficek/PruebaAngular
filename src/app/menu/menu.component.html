@@ -1,1 +1,50 @@
-<h1>Este es el super menu</h1>
+<nav>
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#"><img src="../../assets/img/logos-eleg.png"/></a>
+            </div>
+            <ul class="nav navbar-nav">
+                    <!-- MENU CAMBIO PAIS -->
+                    <li class="dropdown langs">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <span class="caret"></span>
+                            <span id="selectedlang"><i class='flag-icon {{clasePaisSeleccionado}}'></i>{{paisSeleccionado}}</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li *ngFor="let pais of paises?.lista"  [ngClass]="{hidden : pais.id == currentUser.idPaisDefault}">
+                                <a href="/" class="lang"> 
+                                    <i class='flag-icon {{pais.clase}}'></i>&nbsp;
+                                    {{pais.nombreCorto}}
+                                </a>
+                            </li> 	  
+                        </ul>
+                    </li>
+                <li class="dropdown dropdown-notifications" id="usernotifications">
+                    Mostrar las notificaciones
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li *ngFor="let subMenu of menu?.subMenu">
+                    <a href="{{subMenu.link}}">{{subMenu.name}}</a>
+                </li>                
+                <!-- MENU USUARIO -->		
+                <li role="presentation" class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    {{currentUser.firstName + ' ' + currentUser.lastName}} <span class="caret"></span></a>
+                    <ul class="dropdown-menu open">	
+                        <li *ngFor="let userMenu of menu?.menuUsuario">
+                            <a href="{{userMenu.link}}">{{userMenu.name}}</a>
+                        </li>									
+                        <li class="divider"></li>
+                        <li><a href="../../assets/Manual_Instructivo_Matriz_Online_V6.pdf" target="_blank">Guía del Usuario E-leg</a></li>
+                        <li><a href="https://www.youtube.com/watch?v=4qOzYmvImXg" target="_blank">Video Tutorial E-leg</a></li>
+                        <li class="divider"></li>
+                        <li><a href="/login">Cerrar Sesión</a></li>					
+                    </ul>
+                </li>
+            </ul>
+          </div>
+    </div>
+</nav>
