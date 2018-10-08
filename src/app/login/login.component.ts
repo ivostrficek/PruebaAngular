@@ -4,6 +4,7 @@ import { MessageService } from '../service/index';
 import { AlertService, AuthenticationService } from '../service/index';
 
 @Component({
+    selector: 'app-login',
     templateUrl: 'login.component.html',
     styleUrls: ['login.component.css']
 })
