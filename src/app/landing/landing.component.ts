@@ -12,7 +12,7 @@ export class LandingComponent implements OnInit {
 
   ngOnInit() {
     //Si llego hasta aca es por que esta logueado
-    this.menssageService.sendMessage(true);
+    //this.menssageService.sendMessage(true);
   }
 
 }

@@ -3,12 +3,13 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { LandingComponent } from '../landing/landing.component';
 import { LoginComponent } from '../login/login.component';
-import { LoadedRouterConfig } from '@angular/router/src/config';
 import { AuthGuard } from '../guards/auth.guard';
+import { UserComponent } from '../user/user.component';
 
 const appRoutes: Routes = [
   { path:'', component:LandingComponent, canActivate: [AuthGuard]  },
   { path:'login', component:LoginComponent },
+  { path:'admin/users', component:UserComponent},
   { path:'**', redirectTo:'' }
 ]
 

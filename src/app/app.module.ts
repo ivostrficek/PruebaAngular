@@ -4,19 +4,16 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
-import { MenuService } from './service/menu.service';
+import { MenuService, AlertService, AuthenticationService, MessageService, PaisService, UserService, HelperTypeService } from './service';
 import { GridComponent } from './commons/grid/grid.component';
 import { DataTablesModule } from 'angular-datatables';
 import { LoginComponent } from './login/login.component';
 import { LandingComponent } from './landing/landing.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
-import { AlertService } from './service/alert.service';
-import { AuthenticationService } from './service/authentication.service';
 import { FormsModule }   from '@angular/forms';
 import { AppConfig } from './app.config';
-import { MessageService } from './service/message.service';
 import { AuthGuard } from './guards/auth.guard';
-import { PaisService } from './service';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +21,9 @@ import { PaisService } from './service';
     MenuComponent,
     GridComponent,
     LoginComponent,
-    LandingComponent
+    LandingComponent,
+    UserComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +39,8 @@ import { PaisService } from './service';
     MessageService,
     PaisService,
     AppConfig,
+    UserService,
+    HelperTypeService,
     AuthGuard
   ],
   bootstrap: [AppComponent]

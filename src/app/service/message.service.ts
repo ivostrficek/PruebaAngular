@@ -6,7 +6,7 @@ export class MessageService {
     private subject = new Subject<any>();
 
     sendMessage(message: boolean) {
-        this.subject.next({ text: message });
+        this.subject.next({ value: message });
     }
 
     getMessage(): Observable<any> {
