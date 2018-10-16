@@ -10,15 +10,15 @@ export class GridComponent implements OnInit {
    /**
    * Get the data that will be displayed on the grid
    */
-  @Input() inputData: any;
+  @Input() inputData: any = [];
    /**
    * Get the columns headers of the grid
    */
-  @Input() columsHeaders: any;
+  @Input() columsHeaders: any = [];
    /**
    * Get the columns headers of the grid
    */
-  @Input() columnsDefinitions: any;
+  @Input() columnsDefinitions: any = [];
 
   dtOptions: DataTables.Settings = {};
 

@@ -43,4 +43,10 @@
     </div>
   </form>
 </div>
+<app-grid
+  *ngIf='users'
+  [inputData]="users"
+  [columsHeaders]="columnsHeaders"
+  [columnsDefinitions]="columnsDefinitions">
+</app-grid>
 </div>
