@@ -23,6 +23,11 @@ export class GridComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
 
   ngOnInit(): void {
+    this.iniciarTabla();
+  }
+
+  iniciarTabla(): void{
+    
     var dataArr: string[][] = [];
 
     var rowArray: string[] = [];
