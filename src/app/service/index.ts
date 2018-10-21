@@ -5,3 +5,4 @@ export * from './menu.service';
 export * from './pais.service';
 export * from './user.service';
 export * from './helper-type.service'
+export * from './province.service'

@@ -7,13 +7,15 @@ import { AuthGuard } from '../guards/auth.guard';
 import { UserComponent } from '../user/user.component';
 import { AdminorganismComponent } from '../adminorganism/adminorganism.component';
 import { RegionComponent } from '../region/region.component';
+import { ProvinceComponent } from '../province/province.component';
 
 const appRoutes: Routes = [
   { path: '', component: LandingComponent },
   { path: 'login', component: LoginComponent },
   { path: 'admin/users', component: UserComponent },
   { path: 'admin/organisms', component: AdminorganismComponent },
-  { path: 'admin/districts/regions', component: RegionComponent },  
+  { path: 'admin/districts/regions', component: RegionComponent },
+  { path: 'admin/districts/provinces', component: ProvinceComponent },
   { path: '**', redirectTo: '' }
 ]
 

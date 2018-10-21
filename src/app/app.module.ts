@@ -4,7 +4,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
-import { MenuService, AlertService, AuthenticationService, MessageService, PaisService, UserService, HelperTypeService } from './service';
+import { MenuService, AlertService, AuthenticationService, MessageService, PaisService, UserService, HelperTypeService, ProvinceService } from './service';
 import { GridComponent } from './commons/grid/grid.component';
 import { DataTablesModule } from 'angular-datatables';
 import { LoginComponent } from './login/login.component';
@@ -17,6 +17,7 @@ import { UserComponent } from './user/user.component';
 import { AdminorganismComponent } from './adminorganism/adminorganism.component';
 import { OrganismsService } from './service/organisms.service';
 import { RegionComponent } from './region/region.component';
+import { ProvinceComponent } from './province/province.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { RegionComponent } from './region/region.component';
     UserComponent,
     UserComponent,
     AdminorganismComponent,
-    RegionComponent
+    RegionComponent,
+    ProvinceComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +49,7 @@ import { RegionComponent } from './region/region.component';
     UserService,
     HelperTypeService,
     OrganismsService,
+    ProvinceService,
     AuthGuard
   ],
   bootstrap: [AppComponent]
