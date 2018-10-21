@@ -44,7 +44,8 @@ export class GridComponent implements OnInit {
       data: dataArr,   
       ordering: false,
 			searching: true,
-			autoWidth: false,   
+      autoWidth: false,  
+      processing: true, 
       language: {
         processing:     "Procesando...",
         lengthMenu:    "Mostrar _MENU_ registros",

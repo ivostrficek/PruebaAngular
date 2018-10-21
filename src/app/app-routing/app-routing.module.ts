@@ -5,12 +5,16 @@ import { LandingComponent } from '../landing/landing.component';
 import { LoginComponent } from '../login/login.component';
 import { AuthGuard } from '../guards/auth.guard';
 import { UserComponent } from '../user/user.component';
+import { AdminorganismComponent } from '../adminorganism/adminorganism.component';
+import { RegionComponent } from '../region/region.component';
 
 const appRoutes: Routes = [
-  { path:'', component:LandingComponent, canActivate: [AuthGuard]  },
-  { path:'login', component:LoginComponent },
-  { path:'admin/users', component:UserComponent},
-  { path:'**', redirectTo:'' }
+  { path: '', component: LandingComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'admin/users', component: UserComponent },
+  { path: 'admin/organisms', component: AdminorganismComponent },
+  { path: 'admin/districts/regions', component: RegionComponent },  
+  { path: '**', redirectTo: '' }
 ]
 
 @NgModule({
@@ -20,7 +24,7 @@ const appRoutes: Routes = [
     ),
     CommonModule
   ],
-  exports:[
+  exports: [
     RouterModule
   ],
   declarations: []

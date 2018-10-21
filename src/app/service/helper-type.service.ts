@@ -10,29 +10,36 @@ export class HelperTypeService {
     getUserTypes() {
         return this.http.get(this.config.apiUrl + '/api/helpertype/ObtenerTiposUsuario', this.jwt())
             .pipe(
-              map((response: Response) => response.json())
-            )            
+                map((response: Response) => response.json())
+            )
     }
 
     getAlcances() {
         return this.http.get(this.config.apiUrl + '/api/helpertype/ObtenerAlcances', this.jwt())
-          .pipe(
-            map((response: Response) => response.json())
-          )            
+            .pipe(
+                map((response: Response) => response.json())
+            )
     }
 
-    getProvinciasCombo(idAlcance : any){
-        return this.http.get(this.config.apiUrl + '/api/helpertype/ObtenerProvinciasCombo?IdAlcance=' + idAlcance , this.jwt())
-        .pipe(
-          map((response: Response) => response.json())
-        )
+    getProvinciasCombo(idAlcance: any) {
+        return this.http.get(this.config.apiUrl + '/api/helpertype/ObtenerProvinciasCombo?IdAlcance=' + idAlcance, this.jwt())
+            .pipe(
+                map((response: Response) => response.json())
+            )
     }
 
-    getMunicipiosCombo(idAlcance : any, idProvincia : any){
-        return this.http.get(this.config.apiUrl + '/api/helpertype/ObtenerMunicipiosCombo?IdAlcance=' + idAlcance + '&IdProvincia=' + idProvincia , this.jwt())
-        .pipe(
-          map((response: Response) => response.json())
-        )
+    getMunicipiosCombo(idAlcance: any, idProvincia: any) {
+        return this.http.get(this.config.apiUrl + '/api/helpertype/ObtenerMunicipiosCombo?IdAlcance=' + idAlcance + '&IdProvincia=' + idProvincia, this.jwt())
+            .pipe(
+                map((response: Response) => response.json())
+            )
+    }
+
+    getRegionesBusquedaGeneral(idPais: any) {
+        return this.http.get(this.config.apiUrl + '/api/helpertype/ObtenerRegionesBusquedaGeneral?idPais=' + idPais, this.jwt())
+            .pipe(
+                map((response: Response) => response.json())
+            )
     }
 
     private jwt() {

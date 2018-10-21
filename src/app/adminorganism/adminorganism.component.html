@@ -1,0 +1,66 @@
+<div class="container">
+  <h3 class="header">
+    <span id="h3_title">Organismos</span>
+    <div class='btn-toolbar pull-right'>
+      <div class='btn-group'>
+        <button (click)="changeAdvancedFilterVisibility()" class="btn btn-default btn-sm">Filtro Avanzado</button>
+        <button id="newbtn" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal_lg">Crear Organismo</button>
+      </div>
+    </div>
+  </h3>
+
+  <div *ngIf="ShowAdvancedFilter" id="filter">
+    <form id="searchform">
+      <div class="well well-sm col-xs-12">
+        <div class="form-group col-xs-2">
+          <label for="TipoUsuario">Alcance:</label>
+          <select class="form-control input-sm" name="organismoAlcance" id="organismoAlcance" (ngModelChange)="seleccionAlcance($event)"
+            [(ngModel)]="advancedFilter.alcance">
+            <option value="-1" selected></option>
+            <option *ngFor="let alc of alcances" [value]="alc?.idAlcance">
+              {{alc.alcance}}
+            </option>
+          </select>
+        </div>
+        <div class="form-group col-xs-2">
+          <label for="TipoUsuario">Provincia:</label>
+          <select class="form-control input-sm" name="organismoProvincia" id="organismoProvincia" (ngModelChange)="seleccionProvincia($event)"
+            [(ngModel)]="advancedFilter.provincia">
+            <option value="-1" selected></option>
+            <option *ngFor="let provincia of provincias" [value]="provincia?.idProvincia">
+              {{provincia.provincia}}
+            </option>
+          </select>
+        </div>
+        <div class="form-group col-xs-2">
+          <label for="TipoUsuario">Municipio:</label>
+          <select class="form-control input-sm" name="organismoMunicipio" id="organismoMunicipio" [(ngModel)]="advancedFilter.municipio">
+            <option value="-1" selected></option>
+            <option *ngFor="let municipio of municipios" [value]="municipio?.idMunicipio">
+              {{municipio.municipio}}
+            </option>
+          </select>
+        </div>
+        <div class="form-group col-xs-1">
+          <label for="Usuario">Organismo:</label>
+          <input class="form-control input-sm" name="organismoNombre" id="organismoNombre" type="text" [(ngModel)]="advancedFilter.organismo">
+        </div>
+        <div class="form-group col-xs-1">
+          <label for="DeBaja">De Baja:</label>
+          <select class="form-control input-sm" name="DeBaja" id="DeBaja" [(ngModel)]="advancedFilter.deBaja">
+            <option value="0" selected>No</option>
+            <option value="1">S&iacute;</option>
+            <option value="-1"></option>
+          </select>
+        </div>
+        <div class="col-xs-5"></div>
+        <div class="form-group col-xs-1">
+          <label for="searchbtn" class="col-xs-12">&nbsp;</label>
+          <button id="searchbtn" class="btn btn-success btn-sm" (click)="buscarOrganismo(advancedFilter)">Filtrar</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <app-grid *ngIf='Organismos' [inputData]="Organismos" [columsHeaders]="columnsHeaders" [columnsDefinitions]="columnsDefinitions">
+  </app-grid>
+</div>

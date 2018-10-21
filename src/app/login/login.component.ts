@@ -19,13 +19,13 @@ export class LoginComponent implements OnInit {
         private authenticationService: AuthenticationService,
         private alertService: AlertService,
         private messageService: MessageService) {
-            this.messageService.sendMessage(false);
-         }
+        this.messageService.sendMessage(false);
+    }
 
     ngOnInit() {
         // reset login status
         this.authenticationService.logout();
-        
+
         // get return url from route parameters or default to 'home'
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '';
     }
@@ -34,8 +34,8 @@ export class LoginComponent implements OnInit {
         this.loading = true;
         this.authenticationService.login(this.model.username, this.model.password)
             .subscribe(
-                data => {    
-                    this.messageService.sendMessage(true);                
+                data => {
+                    this.messageService.sendMessage(true);
                     this.router.navigate([this.returnUrl]);
                 },
                 error => {

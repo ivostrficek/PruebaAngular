@@ -14,27 +14,27 @@ export class UserComponent {
     private ShowAdvancesFilter: boolean = false;
     private columnsHeaders: any[];
     private columnsDefinitions: any[];
-    private users:any;
+    private users: any;
     private message = '';
-    private userToEdit : any = {user:"", tipo:"", pais:"", mail:""};
-    private advancedFilter: any = {user:"", tipo:"-1", deBaja:"-1"}
-    private userTypes : any;
+    private userToEdit: any = { user: "", tipo: "", pais: "", mail: "" };
+    private advancedFilter: any = { user: "", tipo: "-1", deBaja: "-1" }
+    private userTypes: any;
 
-    constructor(private userService: UserService, private router: Router, private helperTypeService: HelperTypeService,private messageService:MessageService) {
+    constructor(private userService: UserService, private router: Router, private helperTypeService: HelperTypeService, private messageService: MessageService) {
     }
 
     ngOnInit() {
         this.messageService.sendMessage(true);
-      this.obtenerUsuarios();
-      this.helperTypeService.getUserTypes().subscribe(
-          body => {
-              this.userTypes = body;
-              console.log(this.userTypes);
-          },
-          error => alert(error)
-      )
+        this.obtenerUsuarios();
+        this.helperTypeService.getUserTypes().subscribe(
+            body => {
+                this.userTypes = body;
+                console.log(this.userTypes);
+            },
+            error => alert(error)
+        )
 
-        this.columnsHeaders = [{title:'idUsuario'},{title:'Usuario'},{title:'nombre'},{title:'apellido'},{title:'Tipo'}, {title:'Pais Default'}, {title:'Baja'}, {title:'Email'}, {title:'Editar'}, {title:'Plantas'}, {title:'Paises'}]
+        this.columnsHeaders = [{ title: 'idUsuario' }, { title: 'Usuario' }, { title: 'nombre' }, { title: 'apellido' }, { title: 'Tipo' }, { title: 'Pais Default' }, { title: 'Baja' }, { title: 'Email' }, { title: 'Editar' }, { title: 'Plantas' }, { title: 'Paises' }]
         this.columnsDefinitions = [{
             "targets": [0],
             "visible": false,
@@ -52,24 +52,24 @@ export class UserComponent {
         },
         {
             className: "dt-center",
-            targets:8,
-            data:null,
-            defaultContent:'<a title="Plantas"><span class="fa fa-edit"></span></a>'
+            targets: 8,
+            data: null,
+            defaultContent: '<a title="Plantas"><span class="fa fa-edit"></span></a>'
         },
         {
             className: "dt-center",
-            targets:9,
-            data:null,
-            defaultContent:'<a title="Plantas"><span class="fa fa-map-marker"></span></a>'
+            targets: 9,
+            data: null,
+            defaultContent: '<a title="Plantas"><span class="fa fa-map-marker"></span></a>'
         },
         {
-            targets:10,
-            data:null,
-            defaultContent:'<a title="Plantas"><span class="fa fa-map-marker"></span></a>'
+            targets: 10,
+            data: null,
+            defaultContent: '<a title="Plantas"><span class="fa fa-map-marker"></span></a>'
         }]
     }
-        
-    obtenerUsuarios(){
+
+    obtenerUsuarios() {
         this.userService.getAll().subscribe(
             body => {
                 this.users = body;
@@ -91,13 +91,13 @@ export class UserComponent {
     //     this.modalNew.show();
     // }
 
-    buscarUsuario(user:any){
+    buscarUsuario(user: any) {
         let currentUser = JSON.parse(localStorage.getItem('currentUser'));
         user.currentUserId = currentUser.id;
         user.currentUserType = currentUser.type;
         this.userService.getFilteredUser(user).subscribe(
-            body => {this.users = body;},
-            error => console.log(error)            
+            body => { this.users = body; },
+            error => console.log(error)
         );
     }
 

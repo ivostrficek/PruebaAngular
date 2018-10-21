@@ -1,0 +1,13 @@
+<div class="container">
+  <h3 class="header">
+    <span id="h3_title">Regiones</span>
+    <div class='btn-toolbar pull-right'>
+      <div class='btn-group'>
+        <button id="newbtn" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal_lg">Crear Organismo</button>
+      </div>
+    </div>
+  </h3>
+
+  <app-grid *ngIf='regiones' [inputData]="regiones" [columsHeaders]="columnsHeaders" [columnsDefinitions]="columnsDefinitions">
+  </app-grid>
+</div>

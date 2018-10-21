@@ -1,52 +1,52 @@
 <div class="container">
-<h3>
-  <span id="h3_title">Usuarios</span>
-  <div class='btn-toolbar pull-right'>
-    <div class='btn-group'>
-      <button (click)="changeAdvancedFilterVisibility()" class="btn btn-default btn-sm">Filtro Avanzado</button>
-      <button id="newbtn" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal_lg" (click)="crearUsuario()">Crear Usuario</button>
-      <button id="combbtn" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal_lg">Unificar Usuario</button>
-      <button id="usadmbtn" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal_lg">Cambiar Usuario Administrador</button>
+  <h3>
+    <span id="h3_title">Usuarios</span>
+    <div class='btn-toolbar pull-right'>
+      <div class='btn-group'>
+        <button (click)="changeAdvancedFilterVisibility()" class="btn btn-default btn-sm">Filtro Avanzado</button>
+        <button id="newbtn" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal_lg" (click)="crearUsuario()">Crear
+          Usuario</button>
+        <button id="combbtn" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal_lg">Unificar
+          Usuario</button>
+        <button id="usadmbtn" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal_lg">Cambiar
+          Usuario Administrador</button>
+      </div>
     </div>
-  </div>
-</h3>
+  </h3>
 
-<div *ngIf="ShowAdvancesFilter" id="filter">
-  <form id="searchform">
-    <div class="well well-sm col-xs-12">
-      <div class="form-group col-xs-3">
-        <label for="Usuario">Usuario:</label>
-        <input class="form-control input-sm" name="Usuario" id="Usuario" type="text" maxlength="20" placeholder="Usuario" [(ngModel)]="advancedFilter.user">
+  <div *ngIf="ShowAdvancesFilter" id="filter">
+    <form id="searchform">
+      <div class="well well-sm col-xs-12">
+        <div class="form-group col-xs-3">
+          <label for="Usuario">Usuario:</label>
+          <input class="form-control input-sm" name="Usuario" id="Usuario" type="text" maxlength="20" placeholder="Usuario"
+            [(ngModel)]="advancedFilter.user">
+        </div>
+        <div class="form-group col-xs-2">
+          <label for="TipoUsuario">Tipo:</label>
+          <select class="form-control input-sm" name="TipoUsuario" id="TipoUsuario" placeholder="Tipo" [(ngModel)]="advancedFilter.tipo">
+            <option value="-1" selected></option>
+            <option *ngFor="let usertype of userTypes" [value]="usertype.idtipo">
+              {{usertype.tipoUsuario}}
+            </option>
+          </select>
+        </div>
+        <div class="form-group col-xs-1">
+          <label for="DeBaja">De Baja:</label>
+          <select class="form-control input-sm" name="DeBaja" id="DeBaja" [(ngModel)]="advancedFilter.deBaja">
+            <option value="0" selected>No</option>
+            <option value="1">S&iacute;</option>
+            <option value="-1"></option>
+          </select>
+        </div>
+        <div class="col-xs-5"></div>
+        <div class="form-group col-xs-1">
+          <label for="searchbtn" class="col-xs-12">&nbsp;</label>
+          <button id="searchbtn" class="btn btn-success btn-sm" (click)="buscarUsuario(advancedFilter)">Filtrar</button>
+        </div>
       </div>
-      <div class="form-group col-xs-2">
-        <label for="TipoUsuario">Tipo:</label>
-        <select class="form-control input-sm" name="TipoUsuario" id="TipoUsuario" placeholder="Tipo" [(ngModel)]="advancedFilter.tipo">
-          <option value="-1" selected></option>
-          <option *ngFor="let usertype of userTypes" [value]="usertype.idtipo">
-            {{usertype.tipoUsuario}}
-          </option>
-        </select>
-      </div>
-      <div class="form-group col-xs-1">
-        <label for="DeBaja">De Baja:</label>
-        <select class="form-control input-sm" name="DeBaja" id="DeBaja" [(ngModel)]="advancedFilter.deBaja">
-          <option value="0" selected>No</option>
-          <option value="1">S&iacute;</option>
-          <option value="-1"></option>
-        </select>
-      </div>
-      <div class="col-xs-5"></div>
-      <div class="form-group col-xs-1">
-        <label for="searchbtn" class="col-xs-12">&nbsp;</label>
-        <button id="searchbtn" class="btn btn-success btn-sm" (click)="buscarUsuario(advancedFilter)">Filtrar</button>
-      </div>
-    </div>
-  </form>
-</div>
-<app-grid
-  *ngIf='users'
-  [inputData]="users"
-  [columsHeaders]="columnsHeaders"
-  [columnsDefinitions]="columnsDefinitions">
-</app-grid>
+    </form>
+  </div>
+  <app-grid *ngIf='users' [inputData]="users" [columsHeaders]="columnsHeaders" [columnsDefinitions]="columnsDefinitions">
+  </app-grid>
 </div>

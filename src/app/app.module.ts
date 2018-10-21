@@ -14,6 +14,9 @@ import { FormsModule }   from '@angular/forms';
 import { AppConfig } from './app.config';
 import { AuthGuard } from './guards/auth.guard';
 import { UserComponent } from './user/user.component';
+import { AdminorganismComponent } from './adminorganism/adminorganism.component';
+import { OrganismsService } from './service/organisms.service';
+import { RegionComponent } from './region/region.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,9 @@ import { UserComponent } from './user/user.component';
     LoginComponent,
     LandingComponent,
     UserComponent,
-    UserComponent
+    UserComponent,
+    AdminorganismComponent,
+    RegionComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +46,7 @@ import { UserComponent } from './user/user.component';
     AppConfig,
     UserService,
     HelperTypeService,
+    OrganismsService,
     AuthGuard
   ],
   bootstrap: [AppComponent]
