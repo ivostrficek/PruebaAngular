@@ -10,7 +10,7 @@ import { DataTablesModule } from 'angular-datatables';
 import { LoginComponent } from './login/login.component';
 import { LandingComponent } from './landing/landing.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { AppConfig } from './app.config';
 import { AuthGuard } from './guards/auth.guard';
 import { UserComponent } from './user/user.component';
@@ -18,6 +18,10 @@ import { AdminorganismComponent } from './adminorganism/adminorganism.component'
 import { OrganismsService } from './service/organisms.service';
 import { RegionComponent } from './region/region.component';
 import { ProvinceComponent } from './province/province.component';
+import { CityComponent } from './city/city.component';
+import { CityService } from './service/city.service';
+import { CompanyComponent } from './company/company.component';
+import { CompanyService } from './service/company.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,9 @@ import { ProvinceComponent } from './province/province.component';
     UserComponent,
     AdminorganismComponent,
     RegionComponent,
-    ProvinceComponent
+    ProvinceComponent,
+    CityComponent,
+    CompanyComponent
   ],
   imports: [
     BrowserModule,
@@ -40,17 +46,20 @@ import { ProvinceComponent } from './province/province.component';
     HttpModule
   ],
   providers: [
-    MenuService,
     AlertService,
-    AuthenticationService,
-    MessageService,
-    PaisService,
     AppConfig,
-    UserService,
+    AuthenticationService,
+    AuthGuard,
+    CityService,
+    CompanyService,
     HelperTypeService,
+    MenuService,
+    MessageService,
     OrganismsService,
+    PaisService,
     ProvinceService,
-    AuthGuard
+    UserService
+
   ],
   bootstrap: [AppComponent]
 })

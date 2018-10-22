@@ -8,6 +8,8 @@ import { UserComponent } from '../user/user.component';
 import { AdminorganismComponent } from '../adminorganism/adminorganism.component';
 import { RegionComponent } from '../region/region.component';
 import { ProvinceComponent } from '../province/province.component';
+import { CityComponent } from '../city/city.component';
+import { CompanyComponent } from '../company/company.component';
 
 const appRoutes: Routes = [
   { path: '', component: LandingComponent },
@@ -16,6 +18,8 @@ const appRoutes: Routes = [
   { path: 'admin/organisms', component: AdminorganismComponent },
   { path: 'admin/districts/regions', component: RegionComponent },
   { path: 'admin/districts/provinces', component: ProvinceComponent },
+  { path: 'admin/districts/cities', component: CityComponent },
+  { path: 'admin/companies', component: CompanyComponent },
   { path: '**', redirectTo: '' }
 ]
 
